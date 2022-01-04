@@ -1,3 +1,3 @@
 # ForJ_web_app
 
-KimNamgyu is ByeongShinSaeKki
+KimNamgyu is ByeongShinSaeKkil
