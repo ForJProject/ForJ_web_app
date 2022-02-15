@@ -25,14 +25,11 @@ public class User extends BaseEntity{
 
 
     public void update(User user){
-        this.userUid = user.userUid;
         this.userNickName = user.userNickName;
-        this.userEmail = user.userEmail;
         this.userPassword = user.userPassword;
         this.userFavoriteTravel = user.userFavoriteTravel;
         this.userAge = user.userAge;
         this.userGender = user.userGender;
-        this.userPermission = user.userPermission;
 
     }
     /*public UserDto toDto(){

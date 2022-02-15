@@ -1,21 +1,26 @@
 package com.example.forjwebapp.module.user.service.impl;
 
-import com.example.forjwebapp.module.user.dto.request.SignUpRequest;
+import com.example.forjwebapp.module.user.dto.request.SignUpRequestDto;
+import com.example.forjwebapp.module.user.repository.UserRepository;
 import com.example.forjwebapp.module.user.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import javax.transaction.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
 
+    @Autowired
+    UserRepository userRepository;
+
     @Override
-    public List<SignUpRequest> saveUserData(SignUpRequest signUpRequest) {
-        return null;
+    @Transactional
+    public SignUpRequestDto saveUserData(SignUpRequestDto signUpRequestDto) {
+        userRepository.save(signUpRequestDto.toEntity());
+        return signUpRequestDto;
     }
 
     @Override
-    public SignUpRequest getUserData(String username) {
-        return null;
-    }
+    public SignUpRequestDto getUserData(String username) {return null;}
 }

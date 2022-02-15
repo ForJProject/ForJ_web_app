@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 public class BaseEntity {
+    //TODO - 아래 내용들이 DB에 작성이 안됨. 이 문제 해결해야할듯.
     @CreatedDate
     @Column(updatable = false)
     private LocalDateTime created_at;

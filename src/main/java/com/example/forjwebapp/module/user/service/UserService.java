@@ -1,10 +1,10 @@
 package com.example.forjwebapp.module.user.service;
 
-import com.example.forjwebapp.module.user.dto.request.SignUpRequest;
+import com.example.forjwebapp.module.user.dto.request.SignUpRequestDto;
 
 import java.util.List;
 
 public interface UserService {
-    public List<SignUpRequest> saveUserData(SignUpRequest signUpRequest);
-    public SignUpRequest getUserData(String username);
+    public SignUpRequestDto saveUserData(SignUpRequestDto signUpRequestDto);
+    public SignUpRequestDto getUserData(String username);
 }
