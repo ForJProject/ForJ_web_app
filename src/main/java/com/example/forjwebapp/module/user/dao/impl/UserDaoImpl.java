@@ -1,13 +1,9 @@
 package com.example.forjwebapp.module.user.dao.impl;
 
 import com.example.forjwebapp.module.user.dao.UserDao;
-import com.example.forjwebapp.module.user.dto.UserDto;
-import com.example.forjwebapp.module.user.entity.UserEntity;
+import com.example.forjwebapp.module.user.entity.User;
 import com.example.forjwebapp.module.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class UserDaoImpl implements UserDao {
 
@@ -15,14 +11,14 @@ public class UserDaoImpl implements UserDao {
     UserRepository userRepository;
 
     @Override
-    public UserEntity saveUser(UserEntity userEntity) {
-        userRepository.save(userEntity);
-        return userEntity;
+    public User saveUser(User user) {
+        userRepository.save(user);
+        return user;
     }
 
     @Override
-    public UserEntity getUsers(String useremail) {
-        UserEntity userEntity = userRepository.findByEmail("vpdls1511@gmail.com");
-        return userEntity;
+    public User getUsers(String userEmail) {
+        User user = userRepository.findByEmail("vpdls1511@gmail.com");
+        return user;
     }
 }

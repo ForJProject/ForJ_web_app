@@ -1,6 +1,6 @@
 package com.example.forjwebapp.module.user.controller;
 
-import com.example.forjwebapp.module.user.dto.UserDto;
+import com.example.forjwebapp.module.user.dto.request.SignUpRequest;
 import com.example.forjwebapp.module.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +13,9 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/api/users")
-    public UserDto getUser(){
-        UserDto user = new UserDto();
+    public SignUpRequest getUser(){
+        SignUpRequest signUpRequest = new SignUpRequest();
         //userService.saveUserData()
-        return user;
+        return signUpRequest;
     }
 }

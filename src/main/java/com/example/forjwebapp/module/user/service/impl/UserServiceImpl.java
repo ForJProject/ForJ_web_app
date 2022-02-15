@@ -1,9 +1,7 @@
 package com.example.forjwebapp.module.user.service.impl;
 
-import com.example.forjwebapp.module.user.dao.UserDao;
-import com.example.forjwebapp.module.user.dto.UserDto;
+import com.example.forjwebapp.module.user.dto.request.SignUpRequest;
 import com.example.forjwebapp.module.user.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,12 +10,12 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Override
-    public List<UserDto> saveUserData(UserDto user) {
+    public List<SignUpRequest> saveUserData(SignUpRequest signUpRequest) {
         return null;
     }
 
     @Override
-    public UserDto getUserData(String username) {
+    public SignUpRequest getUserData(String username) {
         return null;
     }
 }
