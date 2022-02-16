@@ -25,6 +25,15 @@
 
 ***
 
+# Properties Split
+ - application.properties안에 있는 값을 application-dev.properties 로 복사하여 username 과 password 채우기
+ - IntelliJ의 우측 상단에 프로젝트 실행버튼 좌측에 있는 메뉴 클릭
+ - Edit Configurations... 선택
+ - Active Profiles 에서 dev 입력
+
+
+***
+
 <h2>Team</h2>
 <b>Total : 3</b>
 
