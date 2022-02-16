@@ -1,4 +1,4 @@
-package com.example.forjwebapp.module.user.dao.impl;
+package com.example.forjwebapp.module.user.dao;
 
 import com.example.forjwebapp.module.user.dao.UserDao;
 import com.example.forjwebapp.module.user.entity.User;

@@ -35,6 +35,10 @@ public class SignUpRequestDto {
         this.userFavoriteTravel = userFavoriteTravel;
     }
 
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
     public User toEntity(){
         return User.builder()
                 .userEmail(userEmail)
