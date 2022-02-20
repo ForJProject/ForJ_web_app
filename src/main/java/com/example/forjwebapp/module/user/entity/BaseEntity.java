@@ -14,9 +14,10 @@ import java.time.LocalDateTime;
 public class BaseEntity {
     //TODO - 아래 내용들이 DB에 작성이 안됨. 이 문제 해결해야할듯.
     @CreatedDate
-    @Column(updatable = false)
+    @Column(updatable = false, nullable = false)
     private LocalDateTime created_at;
 
     @LastModifiedDate
+    @Column(nullable = false)
     private LocalDateTime updated_at;
 }
