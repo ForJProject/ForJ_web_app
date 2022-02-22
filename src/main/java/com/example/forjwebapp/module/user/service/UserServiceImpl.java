@@ -1,5 +1,6 @@
 package com.example.forjwebapp.module.user.service;
 
+import com.example.forjwebapp.module.user.dto.SignUp;
 import com.example.forjwebapp.module.user.dto.request.SignUpRequestDto;
 import com.example.forjwebapp.module.user.repository.UserRepository;
 import com.example.forjwebapp.module.user.service.UserService;
@@ -21,12 +22,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public SignUpRequestDto saveUserData(SignUpRequestDto signUpRequestDto) {
+    public String saveUserData(SignUp.Request signUpRequestDto) {
         String plainPassword = signUpRequestDto.getUserPassword();
         String encodePassword = passwordEncoder.encode(plainPassword);
         signUpRequestDto.setUserPassword(encodePassword);
         userRepository.save(signUpRequestDto.toEntity());
-        return signUpRequestDto;
+        return "success";
     }
 
     @Override
