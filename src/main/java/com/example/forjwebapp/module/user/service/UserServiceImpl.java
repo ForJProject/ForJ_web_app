@@ -1,10 +1,7 @@
 package com.example.forjwebapp.module.user.service;
 
 import com.example.forjwebapp.module.user.dto.SignUp;
-import com.example.forjwebapp.module.user.dto.request.SignUpRequestDto;
 import com.example.forjwebapp.module.user.repository.UserRepository;
-import com.example.forjwebapp.module.user.service.UserService;
-import com.example.forjwebapp.security.SecurityConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -31,5 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public SignUpRequestDto getUserData(String username) {return null;}
+    public SignUp.Request getUserData(String username) {
+        return null;
+    }
 }
