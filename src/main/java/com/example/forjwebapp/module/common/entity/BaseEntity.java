@@ -1,4 +1,4 @@
-package com.example.forjwebapp.module.user.entity;
+package com.example.forjwebapp.module.common.entity;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
