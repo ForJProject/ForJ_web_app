@@ -16,6 +16,7 @@ public class UserController {
 
     @PostMapping("/api/users")
     public ResponseEntity saveUser(@RequestBody SignUp.Request signUpRequestDto){;
+
         return ResponseEntity.ok().body(userService.saveUserData(signUpRequestDto));
     }
 }
