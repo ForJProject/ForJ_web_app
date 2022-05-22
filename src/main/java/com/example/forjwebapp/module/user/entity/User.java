@@ -12,7 +12,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "t_user")
 public class User extends BaseEntity {
-    //null체크, default 등은 column annotation
+    //todo : null체크, default 등은 column annotation
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int USER_UID;

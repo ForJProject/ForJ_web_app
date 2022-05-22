@@ -6,17 +6,27 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import javax.validation.constraints.*;
+
 public class SignUp {
     @Getter
     @Setter
     @Builder
     public static class Request{
         private int userUid;
+        @NotBlank
         private String userNickName;
+        @Email
+        @NotBlank
         private String userEmail;
+        @NotBlank
         private String userPassword;
+        @NotBlank
         private String userFavoriteTravel;
+        @Min(value = 1, message = "Age should not be less than 1")
+        @Max(value = 100, message = "Age should not be greater than 100")
         private int userAge;
+        @NotBlank
         private String userGender;
         private int userPermission;
 
