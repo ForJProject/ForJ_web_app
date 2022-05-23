@@ -20,15 +20,22 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public String saveUserData(SignUp.Request signUpRequestDto) {
-        String plainPassword = signUpRequestDto.getUserPassword();
-        String encodePassword = passwordEncoder.encode(plainPassword);
-        signUpRequestDto.setUserPassword(encodePassword);
-        userRepository.save(signUpRequestDto.toEntity());
-        return "success";
+        String encodedPassword = encodePassword(signUpRequestDto.getUserPassword());
+        signUpRequestDto.setUserPassword(encodedPassword);
+        try{
+            userRepository.save(signUpRequestDto.toEntity());
+        }catch(Exception e){
+            return "User save failed by internal server error";
+        }
+        return "User Save Success";
     }
 
     @Override
     public SignUp.Request getUserData(String username) {
         return null;
+    }
+
+    private String encodePassword(String plainPassword){
+        return passwordEncoder.encode(plainPassword);
     }
 }

@@ -3,9 +3,7 @@ package com.example.forjwebapp.module.user.dto;
 import com.example.forjwebapp.module.user.entity.User;
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.validation.constraints.*;
 
 public class SignUp {
@@ -14,19 +12,19 @@ public class SignUp {
     @Builder
     public static class Request{
         private int userUid;
-        @NotBlank
+        @NotBlank(message = "사용자 닉네임이 필요합니다.")
         private String userNickName;
-        @Email
-        @NotBlank
+        @NotBlank(message = "사용자 이메일이 필요합니다.")
+        @Email(message = "올바른 이메일 형식이 아닙니다.")
         private String userEmail;
-        @NotBlank
+        @NotBlank(message = "사용자 비밀번호가 필요합니다.")
         private String userPassword;
-        @NotBlank
+        //@NotBlank(message = "사용자 선호 여행지가 필요합니다.")
         private String userFavoriteTravel;
-        @Min(value = 1, message = "Age should not be less than 1")
-        @Max(value = 100, message = "Age should not be greater than 100")
+        @Min(value = 1, message = "사용자 나이는 1살 이상이어야 합니다.")
+        @Max(value = 100, message = "사용자 나이는 100살 이하여야 합니다.")
         private int userAge;
-        @NotBlank
+        @NotBlank(message = "사용자 성별이 필요합니다.")
         private String userGender;
         private int userPermission;
 
