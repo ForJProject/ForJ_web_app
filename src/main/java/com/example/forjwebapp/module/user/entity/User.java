@@ -18,16 +18,22 @@ public class User extends BaseEntity {
     //todo : null체크, default 등은 column annotation
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int USER_UID;
+    @Column(name = "user_uid")
+    private int userUid;
     @Column(length = 100)
-    private String NICKNAME;
-    private String EMAIL;
-    private String PASSWORD;
-    private String FAVORITE_TRAVEL;
-    private Integer AGE;
-    private String GENDER;
+    private String nickName;
+    @Column
+    private String email;
+    @Column
+    private String password;
+    @Column(name = "favorite_travel")
+    private String favoriteTravel;
+    @Column
+    private Integer age;
+    @Column
+    private String gender;
     @ColumnDefault("1")
-    private Integer PERMISSION;
+    private Integer permission;
 
 
 }

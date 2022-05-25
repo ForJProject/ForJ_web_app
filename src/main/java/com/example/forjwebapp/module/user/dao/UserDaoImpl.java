@@ -15,10 +15,4 @@ public class UserDaoImpl implements UserDao {
         userRepository.save(user);
         return user;
     }
-
-    @Override
-    public User getUsers(String userEmail) {
-        User user = userRepository.findByEmail("vpdls1511@gmail.com");
-        return user;
-    }
 }

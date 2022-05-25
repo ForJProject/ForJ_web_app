@@ -27,6 +27,9 @@ public class UserController {
             List<String> errorList = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
             return ResponseEntity.badRequest().body(new ErrorResponse("400", "Validation failed", errorList));
         }
+        if (userService.isExistsUserByEmail(signUpRequestDto.getUserEmail())) {
+            return ResponseEntity.badRequest().body(new ErrorResponse("400", "User save failed", "Already exists User"));
+        }
         //todo : response status code static하게 정의하도록 결정 (ex : BAD_REQUEST = 400)
         return ResponseEntity.ok().body(new Response("200", userService.saveUserData(signUpRequestDto)));
     }

@@ -30,14 +30,14 @@ public class SignUp {
 
         public User toEntity(){
             return User.builder()
-                    .USER_UID(userUid)
-                    .EMAIL(userEmail)
-                    .NICKNAME(userNickName)
-                    .PASSWORD(userPassword)
-                    .GENDER(userGender)
-                    .AGE(userAge)
-                    .FAVORITE_TRAVEL(userFavoriteTravel)
-                    .PERMISSION(userPermission)
+                    .userUid(userUid)
+                    .email(userEmail)
+                    .nickName(userNickName)
+                    .password(userPassword)
+                    .gender(userGender)
+                    .age(userAge)
+                    .favoriteTravel(userFavoriteTravel)
+                    .permission(userPermission)
                     .build();
         }
 

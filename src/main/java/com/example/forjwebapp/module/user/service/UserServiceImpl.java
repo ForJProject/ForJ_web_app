@@ -1,6 +1,7 @@
 package com.example.forjwebapp.module.user.service;
 
 import com.example.forjwebapp.module.user.dto.SignUp;
+import com.example.forjwebapp.module.user.entity.User;
 import com.example.forjwebapp.module.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,6 +30,22 @@ public class UserServiceImpl implements UserService {
         }
         return "User Save Success";
     }
+    @Override
+    @Transactional
+    public boolean isExistsUserByEmail(String email) {
+        User user;
+        try{
+             user = userRepository.findByEmail(email);
+        }catch(Exception e){
+            return false;
+        }
+        if(user != null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     @Override
     public SignUp.Request getUserData(String username) {
