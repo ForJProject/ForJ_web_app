@@ -1,5 +1,6 @@
 package com.example.forjwebapp.module.user.service;
 
+import com.example.forjwebapp.module.user.dto.SignIn;
 import com.example.forjwebapp.module.user.dto.SignUp;
 import com.example.forjwebapp.module.user.entity.User;
 import com.example.forjwebapp.module.user.repository.UserRepository;
@@ -46,6 +47,24 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+    @Override
+    @Transactional
+    public boolean userLogin(SignIn.Request signInRequestDto){
+        User user;
+        try{
+            user = userRepository.findByEmail(signInRequestDto.getUserEmail());
+        }catch(Exception e){
+            return false;
+        }
+        if(user != null){
+            if(passwordEncoder.matches(signInRequestDto.getUserPassword(), user.getPassword()))
+                return true;
+            else
+                return false;
+        } else {
+            return false;
+        }
+    }
 
     @Override
     public SignUp.Request getUserData(String username) {

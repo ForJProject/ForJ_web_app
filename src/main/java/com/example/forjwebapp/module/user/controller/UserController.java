@@ -2,6 +2,7 @@ package com.example.forjwebapp.module.user.controller;
 
 import com.example.forjwebapp.module.common.response.ErrorResponse;
 import com.example.forjwebapp.module.common.response.Response;
+import com.example.forjwebapp.module.user.dto.SignIn;
 import com.example.forjwebapp.module.user.dto.SignUp;
 import com.example.forjwebapp.module.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,18 @@ public class UserController {
         }
         //todo : response status code static하게 정의하도록 결정 (ex : BAD_REQUEST = 400)
         return ResponseEntity.ok().body(new Response("200", userService.saveUserData(signUpRequestDto)));
+    }
+
+    @PostMapping("/api/login")
+    public ResponseEntity login(@Valid @RequestBody SignIn.Request signInRequestDto, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            List<String> errorList = bindingResult.getAllErrors().stream().map(e -> e.getDefaultMessage()).collect(Collectors.toList());
+            return ResponseEntity.badRequest().body(new ErrorResponse("400", "Validation failed", errorList));
+        }
+        if (!userService.userLogin(signInRequestDto)) {
+            return ResponseEntity.badRequest().body(new ErrorResponse("400", "login failed", "Invalid user info"));
+        }
+        //todo : response status code static하게 정의하도록 결정 (ex : BAD_REQUEST = 400)
+        return ResponseEntity.ok().body(new Response("200", "login Success"));
     }
 }
